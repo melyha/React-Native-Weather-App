@@ -6,7 +6,14 @@ const WeatherApp = () => {
   const [unit, setUnit] = useState('C');  // 'C' for Celsius, 'F' for Fahrenheit
   const [selectedCity, setSelectedCity] = useState('Saskatoon'); // Default city
 
+// Static weather data
+  const weatherData = [
+    { city: 'Saskatoon', temperatureC: 22, condition: 'Sunny' },
+    { city: 'Regina', temperatureC: 19, condition: 'Cloudy' },
+    { city: 'Prince Albert', temperatureC: 16, condition: 'Rainy' },
+  ];
 
+  
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Weather App</Text>
