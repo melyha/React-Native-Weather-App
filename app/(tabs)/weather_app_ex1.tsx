@@ -66,7 +66,32 @@ const styles = StyleSheet.create({
     color: 'Black',
   },
 
-  
+  weatherCard: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    padding: 15,
+    margin: 10,
+    width: 200,
+    backgroundColor: '#f9f9f9',
+  },
+  cityName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  condition: {
+    fontSize: 16,
+    color: '#555',
+  },
+  temperature: {
+    fontSize: 17,
+    color: '#333',
+    fontWeight: '600',
+  },
+  loading: {
+    fontSize: 16,
+    color: '#999',
+  },
 
 
 });
