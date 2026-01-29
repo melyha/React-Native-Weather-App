@@ -17,7 +17,9 @@ const WeatherApp = () => {
     return unit === 'C' ? tempC : (tempC * 9) / 5 + 32;
   };
 
-  return (
+const selectedWeather = weatherData.find((data) => data.city === selectedCity);
+
+return (
     <View style={styles.container}>
       <Text style={styles.text}>Weather App</Text>
       <Button  title={`Toggle to ${unit === 'C' ? 'Fahrenheit' : 'Celsius'}`}
@@ -33,7 +35,17 @@ onValueChange={(itemValue) => setSelectedCity(itemValue)}
         <Picker.Item label="Regina" value="Regina" />
         <Picker.Item label="Prince Albert" value="Prince Albert" />
       </Picker>
-      <Text style={{ marginTop: 10 }}>Selected: {selectedCity}</Text>
+      {selectedWeather ? (
+  <View style={styles.weatherCard}>
+    <Text style={styles.cityName}>{selectedWeather.city}</Text>
+    <Text style={styles.condition}>{selectedWeather.condition}</Text>
+    <Text style={styles.temperature}>
+      {convertTemperature(selectedWeather.temperatureC).toFixed(0)}°{unit}
+    </Text>
+  </View>
+) : (
+  <Text style={styles.loading}>No weather data available</Text>
+)}
     </View>
 
 
@@ -53,6 +65,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'Black',
   },
+
+  
+
+
 });
 
 export default WeatherApp;
